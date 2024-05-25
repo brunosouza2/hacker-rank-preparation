@@ -4,3 +4,4 @@
 * [MiniMaxSum](https://github.com/brunosouza2/hacker-rank-preparation/blob/main/src/mini_max_sum/Result.java)
 * [TimeConversion](https://github.com/brunosouza2/hacker-rank-preparation/blob/main/src/time_conversion/Result.java)
 * [BreakingTheRecords](https://github.com/brunosouza2/hacker-rank-preparation/blob/main/src/breaking_the_records/Result.java)
+* [CamelCase4](https://github.com/brunosouza2/hacker-rank-preparation/blob/main/src/camel_case_4/Solution.java)
