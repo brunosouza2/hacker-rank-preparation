@@ -57,11 +57,12 @@ Outputs must be exact (exact spaces and casing).
 public class Solution {
 
     public static void main(String[] args) {
-        Scanner STDIN = new Scanner(System.in);
-        while(STDIN.hasNextLine()) {
-            String userInput = STDIN.nextLine();
-            System.out.println(camelCase(userInput));
-        }
+//        Scanner STDIN = new Scanner(System.in);
+//        while(STDIN.hasNextLine()) {
+//            String userInput = STDIN.nextLine();
+//            System.out.println(camelCase(userInput));
+//        }
+        System.out.println(camelCase("C;V;can of coke"));
     }
 
     public static String camelCase(String text){
@@ -88,35 +89,15 @@ public class Solution {
             return output;
         }
         if (text.startsWith("C")) {
-            String[] wordsAfterSemiColum = text.substring(text.lastIndexOf(";") + 1).split("\\s");
+            parts = text.substring(text.lastIndexOf(";") + 1).split("\\s");
+            int startIndex = isMethod || isVariable ? 1 : 0;
 
-            if (isMethod){
-                parts = wordsAfterSemiColum;
-
-                for (int i = 1; i < parts.length; i++) {
-                    parts[i] =  parts[i].substring(0, 1).toUpperCase() + parts[i].substring(1);
-                }
-
-               output =  String.join("", parts).concat("()");
+            for (int i = startIndex; i < parts.length; i++) {
+                parts[i] = parts[i].substring(0, 1).toUpperCase() + parts[i].substring(1);
             }
-            if (isClass){
-                parts = wordsAfterSemiColum;
 
-                for (int i = 0; i < parts.length; i++) {
-                    parts[i] =  parts[i].substring(0, 1).toUpperCase() + parts[i].substring(1);
-                }
-
-               output =  String.join("", parts);
-            }
-            if (isVariable){
-                parts = wordsAfterSemiColum;
-
-                for (int i = 1; i < parts.length; i++) {
-                    parts[i] =  parts[i].substring(0, 1).toUpperCase() + parts[i].substring(1);
-                }
-
-                output =  String.join("", parts);
-            }
+            output = String.join("", parts).concat("()");
+           if (isClass || isVariable) output = String.join("", parts);
         }
         return output;
     }
